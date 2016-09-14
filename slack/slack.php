@@ -24,7 +24,7 @@ class SlackPlugin extends Plugin {
 
     //Grab useful data to post
     $ticket_id = $ticket->getId();
-    $ticket_url = $ost->getConfig()->getUrl() . 'scp/tickets.php?id=' . $ticket_id;
+    $ticket_url = $ost->getConfig()->getUrl() . '/scp/tickets.php?id=' . $ticket_id;
     $ticket_number = $ticket->getNumber();
     $ticket_subject = $ticket->getSubject();
     $ticket_name = $ticket->getName();
