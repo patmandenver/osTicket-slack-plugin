@@ -27,12 +27,6 @@ class SlackPlugin extends Plugin {
     $ticket_url = $ost->getConfig()->getUrl() . 'scp/tickets.php?id=' . $ticket_id;
     $ticket_number = $ticket->getNumber();
     $ticket_subject = $ticket->getSubject();
-    $ticket_name = $ticket->getName();
-    $ticket_email = $ticket->getEmail();
-    $ticket_topic = $ticket->getTopic()->getName();
-    $ticket_lastMessage = $ticket->getLastMessage();
-    $ticket_phoneNumber = $ticket->getPhoneNumber();
-
 
     //Slack json formatted payload
     $data = "payload=" . json_encode(array(
@@ -47,12 +41,7 @@ class SlackPlugin extends Plugin {
                        "fields" => array(
                           array(
                            "title" => "osTicket #{$ticket_number}",
-                           "value" => "_Topic_: *{$ticket_topic}*\n_Subject_: *{$ticket_subject}*\n\n{$ticket_lastMessage}",
-                           "short" => "true"
-                          ),
-                          array(
-                           "title" => "Contact Information",
-                           "value" => "_name_: `{$ticket_name}`\n_email:_ `{$ticket_email}`\n_phone:_ `{$ticket_phoneNumber}`\n_location_ `???`\n_ticket_url_: {$ticket_url}",
+                           "value" => "_Subject_: *{$ticket_subject}*\n",
                            "short" => "true"
                           )
                          )
